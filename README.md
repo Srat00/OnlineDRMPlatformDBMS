@@ -2,7 +2,7 @@
 ### 온라인 게임 DRM 관리를 위한 DBMS 구축 프로젝트
 
 ## TODO
-- Requirements ☐
+- Requirements ✅
 - ER Diagram ☐
 - Realtion Schema (ER-Relational Mapping) ☐
 - Normalization ☐
