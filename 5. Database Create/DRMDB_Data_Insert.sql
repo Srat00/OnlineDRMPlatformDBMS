@@ -5,17 +5,22 @@
 */
 use DRMDB;
 
+ALTER TABLE Users convert to charset utf8;
+ALTER TABLE Game convert to charset utf8;
+ALTER TABLE Orders convert to charset utf8;
+ALTER TABLE DRM convert to charset utf8;
+
 /* User Insert */
-INSERT INTO User VALUES(1, '김상덕');
-INSERT INTO User VALUES(2, '이승규');
-INSERT INTO User VALUES(3, '박수현');
-INSERT INTO User VALUES(4, '최강한화');
-INSERT INTO User VALUES(5, '민현수');
-INSERT INTO User VALUES(6, '송민수');
-INSERT INTO User VALUES(7, '어민호');
-INSERT INTO User VALUES(8, '박재환');
-INSERT INTO User VALUES(9, '차민우');
-INSERT INTO User VALUES(10, '김민수');
+INSERT INTO Users VALUES(1, '김상덕');
+INSERT INTO Users VALUES(2, '이승규');
+INSERT INTO Users VALUES(3, '박수현');
+INSERT INTO Users VALUES(4, '최강한화');
+INSERT INTO Users VALUES(5, '민현수');
+INSERT INTO Users VALUES(6, '송민수');
+INSERT INTO Users VALUES(7, '어민호');
+INSERT INTO Users VALUES(8, '박재환');
+INSERT INTO Users VALUES(9, '차민우');
+INSERT INTO Users VALUES(10, '김민수');
 
 /* Game Insert */
 INSERT INTO Game VALUES(1, 'Half-Life');

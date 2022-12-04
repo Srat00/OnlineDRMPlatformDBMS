@@ -3,13 +3,14 @@
 * 2020039091 Rocky Eo
 * DRMDB를 생성하고, User, Game, GameUser 테이블을 생성한다.
 */
-create database DRMDB;
-commit;
+DROP DATABASE IF EXISTS DRMDB;
+CREATE DATABASE DRMDB;
+COMMIT;
 
 
 use DRMDB;
 
-CREATE TABLE User (
+CREATE TABLE Users (
     Uno INTEGER PRIMARY KEY,
     UName VARCHAR(40)
 );
@@ -19,16 +20,17 @@ CREATE TABLE Game (
     GName VARCHAR(60)
 );
 
-CREATE TABLE Order (
+CREATE TABLE Orders (
     UNo INTEGER,
     GNo INTEGER,
     ONo INTEGER,
-    FOREIGN KEY (UNo) REFERENCES User(UNo),
-    FOREIGN KEY (GNo) REFERENCES Game(GNo)
+    FOREIGN KEY (UNo) REFERENCES Users(UNo),
+    FOREIGN KEY (GNo) REFERENCES Game(GNo),
     PRIMARY KEY (UNo, GNo)
 );
 
 CREATE TABLE DRM(
-    ONo INTEGER PRIMARY KEY,
-    DRMNo VARCHAR(20)
+    ONo INTEGER,
+    DRMNo VARCHAR(20),
+    PRIMARY KEY (ONo)
 );
