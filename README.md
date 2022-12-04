@@ -4,7 +4,7 @@
 ## TODO
 - Requirements ✅
 - ER Diagram ✅
-- Realtion Schema (ER-Relational Mapping) ☐
+- Realtion Schema (ER-Relational Mapping) ✅
 - Normalization ☐
 - Create Database ☐
 - Menu-Based Program ☐ (Ongoing)
