@@ -21,43 +21,75 @@ port = input()
 print("User : ", end = "")
 user = input()
 password = getpass.getpass("Password : ")
-print("Database : ", end = "")
-database = input()
 
 print("데이터베이스에 연결합니다...\n\n")
 
 #연결 성공
 try:
-    sqlConnect = pymysql.connect(host=ip, port=int(port), user=user, password=password, db=database, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+    sqlConnect = pymysql.connect(host=ip, port=int(port), user=user, password=password, db='DRMDB', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
     print("데이터베이스에 연결되었습니다. 비정상적으로 종료할 경우 수정한 데이터가 유실될 수 있습니다.\n\n")
     
     cursor = sqlConnect.cursor()
     #메인메뉴
     while(True):
-        print("\n어떤 작업을 하시겠습니까? \n 1. 데이터 삽입\n 2. 데이터 수정 \n 3. 데이터 삭제 \n 4. 데이터 검색 \n 0. 종료 \n\n >> ", end = "")
+        print("\n어떤 작업을 하시겠습니까? \n 1. 데이터 삽입 \n 2. 데이터 수정 \n 3. 데이터 삭제 \n 4. 데이터 검색 \n 0. 종료 \n\n >> ", end = "")
         select = input()
         
         #데이터 삽입
         if (int(select) == 1):
-            print("\n테이블 명을 입력하십시오. \n >> ", end = "")
+            print("\n[User, Game, Order] 중 원하는 테이블 명을 입력하십시오.\n >> ", end = "")
             table = input()
             while(True):
-                print("\n삽입할 데이터를 입력하십시오. \n >> ", end = "")
-                data = input()                
-                quarry = "INSERT INTO " + table + " VALUES (" + data + ")"
+                if (table == "User"):
+                    print("\n(유저번호,유저이름)를 입력하십시오. \n >> ", end = "")
+                    data = input()                
+                    quarry = "INSERT INTO " + table + " VALUES (" + data + ")"
+                    
+                    try:
+                        cursor.execute(quarry)
+                        print("\n데이터를 삽입했습니다. 계속 삽입하시려면 1을 입력해주십시오.\n >> ", end = "")
+                        select = input()
+                        if(select != '1'):
+                            break
+                    except Exception as e:
+                        print("\n데이터 삽입에 실패하였습니다. 데이터를 확인하십시오.", e, "\n\n")
                 
-                try:
-                    cursor.execute(quarry)
-                    print("\n데이터를 삽입했습니다. 계속 삽입하시려면 1을 입력해주십시오.\n >> ", end = "")
-                    select = input()
-                    if(select != '1'):
-                        break
-                except Exception as e:
-                    print("\n데이터 삽입에 실패하였습니다. 데이터를 확인하십시오.", e, "\n\n")
+                elif (table == "Game"):
+                    print("\n(게임번호,유저이름)를 입력하십시오. \n >> ", end = "")
+                    data = input()                
+                    quarry = "INSERT INTO " + table + " VALUES (" + data + ")"
+                    
+                    try:
+                        cursor.execute(quarry)
+                        print("\n데이터를 삽입했습니다. 계속 삽입하시려면 1을 입력해주십시오.\n >> ", end = "")
+                        select = input()
+                        if(select != '1'):
+                            break
+                    except Exception as e:
+                        print("\n데이터 삽입에 실패하였습니다. 데이터를 확인하십시오.", e, "\n\n")
+                        
+                elif (table == "Order"):
+                    print("\n(유저번호,게임번호,주문번호)를 입력하십시오. \n >> ", end = "")
+                    data = input()                
+                    quarry = "INSERT INTO " + table + " VALUES (" + data + ")"
+                    userno = data.split(",")[0].strip("(")
+                    gameno = data.split(",")[1]
+                    
+                    try:
+                        cursor.execute(quarry)
+                        print("\n데이터를 삽입했습니다. 계속 삽입하시려면 1을 입력해주십시오.\n >> ", end = "")
+                        select = input()
+                        if(select != '1'):
+                            break
+                    except Exception as e:
+                        print("\n데이터 삽입에 실패하였습니다. 데이터를 확인하십시오.", e, "\n\n")
+                
+                else:
+                    print("\n잘못된 테이블 명입니다. 다시 입력해주십시오.\n >> ", end = "")
         
         #데이터 수정
         elif (int(select) == 2):
-            print("\n테이블 명을 입력하십시오. \n >> ", end = "")
+            print("\n테이블 명을 입력하십시오. [User, Game, Order]\\n >> ", end = "")
             table = input()
             while(True):
                 print("\n수정할 조건을 입력하십시오. 조건을 생략하면 전체 데이터가 수정됩니다! \n >> ", end = "")
@@ -82,7 +114,7 @@ try:
             
         #데이터 삭제
         elif (int(select) == 3):
-            print("\n테이블 명을 입력하십시오. \n >> ", end = "")
+            print("\n테이블 명을 입력하십시오. [User, Game, Order]\n >> ", end = "")
             table = input()
             while(True):
                 print("\n삭제할 조건을 입력하십시오. 조건을 생략하면 전체 데이터가 삭제됩니다! \n >> ", end = "")
