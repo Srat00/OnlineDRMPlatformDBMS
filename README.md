@@ -5,8 +5,8 @@
 - Requirements ✅
 - ER Diagram ✅
 - Realtion Schema (ER-Relational Mapping) ✅
-- Normalization ☐
-- Create Database ☐
+- Normalization ✅
+- Create Database ✅
 - Menu-Based Program ☐ (Ongoing)
 
 If task has completed, Please change ☐ into ✅ !! 
