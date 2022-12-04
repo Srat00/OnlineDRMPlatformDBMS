@@ -218,4 +218,15 @@ fontsize=20
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;30.0;400.0;30.0;400.0;220.0;120.0;220.0;120.0;190.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>270</y>
+      <w>670</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>*DRMDB Relation Schema*</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>
