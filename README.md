@@ -7,7 +7,7 @@
 - Realtion Schema (ER-Relational Mapping) ✅
 - Normalization ✅
 - Create Database ✅
-- Menu-Based Program ☐ (Ongoing)
+- Menu-Based Program ✅
 
 If task has completed, Please change ☐ into ✅ !! 
 ###### 22-2 Database System Term Project, 2020039091 Rocky Eo.
